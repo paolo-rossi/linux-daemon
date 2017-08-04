@@ -3,9 +3,15 @@ program delphid;
 {$APPTYPE CONSOLE}
 
 uses
-  System.SysUtils, System.IOUtils,
-  Posix.Stdlib, Posix.SysStat, Posix.SysTypes, Posix.Unistd, Posix.Signal, Posix.Fcntl,
-  syslogapi in 'syslogapi.pas';
+  System.SysUtils,
+  System.IOUtils,
+  Posix.Stdlib,
+  Posix.SysStat,
+  Posix.SysTypes,
+  Posix.Unistd,
+  Posix.Signal,
+  Posix.Fcntl,
+  Posix.Syslog in 'Posix.Syslog.pas';
 
 const
   // Missing from linux/StdlibTypes.inc !!! <stdlib.h>

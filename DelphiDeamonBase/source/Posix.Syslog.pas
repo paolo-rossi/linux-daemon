@@ -1,4 +1,4 @@
-unit syslogapi;
+unit Posix.Syslog;
 
 interface
 
