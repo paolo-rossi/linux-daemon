@@ -1,0 +1,3 @@
+[submodule "WiRL"]
+	path = WiRL
+	url = https://github.com/delphi-blocks/WiRL
