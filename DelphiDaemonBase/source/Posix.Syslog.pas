@@ -1,3 +1,14 @@
+{******************************************************************************}
+{                                                                              }
+{       Linux Daemon with Delphi                                               }
+{                                                                              }
+{       Author: Paolo Rossi (2017)                                             }
+{                                                                              }
+{       http://www.paolorossi.net                                              }
+{       http://blog.paolorossi.net                                             }
+{       https://github.com/paolo-rossi                                         }
+{                                                                              }
+{******************************************************************************}
 unit Posix.Syslog;
 
 interface
@@ -62,6 +73,8 @@ function setlogmask(mask: LongInt): LongInt; cdecl;
 
 procedure _syslog(priority: LongInt; _format: MarshaledAString; args: array of const); cdecl;
   external libc name _PU + 'syslog';
+
+//procedure openlog2(ident: MarshaledAString; option: LongInt; facility: LongInt); cdecl;
 
 procedure syslog(APriority: LongInt; const AFormat: string); overload;
 

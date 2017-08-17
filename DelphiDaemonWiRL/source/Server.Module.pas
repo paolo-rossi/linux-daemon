@@ -1,3 +1,14 @@
+{******************************************************************************}
+{                                                                              }
+{       Linux Daemon with Delphi                                               }
+{                                                                              }
+{       Author: Paolo Rossi (2017)                                             }
+{                                                                              }
+{       http://www.paolorossi.net                                              }
+{       http://blog.paolorossi.net                                             }
+{       https://github.com/paolo-rossi                                         }
+{                                                                              }
+{******************************************************************************}
 unit Server.Module;
 
 interface
