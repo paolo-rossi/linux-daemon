@@ -2,8 +2,8 @@
 
 This is the code for the blog articles:
 
-- Blog post: [Building a (real) Linux daemon with Delphi - Part 1](http://blog.paolorossi.net/2017/07/11/building-a-real-linux-daemon-with-delphi-part-1-2/)
-- Blog post: [Building a (real) Linux daemon with Delphi - Part 2](http://blog.paolorossi.net/building-a-real-linux-daemon-with-delphi-part-2) (not yet published)
+- [Building a (real) Linux daemon with Delphi - Part 1](http://blog.paolorossi.net/2017/07/11/building-a-real-linux-daemon-with-delphi-part-1-2/)
+- [Building a (real) Linux daemon with Delphi - Part 2](http://blog.paolorossi.net/building-a-real-linux-daemon-with-delphi-part-2) (not yet published)
 
 The first demo (DelphiDaemon1 folder) is the exact code showed in the article, it's a simple but fully functional Linux daemon implementation in a `.dpr` project with the `syslog.pas` unit.
 
