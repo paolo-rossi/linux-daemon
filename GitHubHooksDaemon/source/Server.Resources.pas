@@ -36,6 +36,10 @@ type
     [Produces(TMediaType.APPLICATION_JSON)]
     function RepoPush([Headerparam('X-GitHub-Event')] const AEvent: string; [BodyParam] AJSON: TJSONObject): TJSONObject;
 
+    [POST, Path('fork')]
+    [Produces(TMediaType.APPLICATION_JSON)]
+    function RepoFork([Headerparam('X-GitHub-Event')] const AEvent: string; [BodyParam] AJSON: TJSONObject): TJSONObject;
+
     [POST, Path('watch')]
     [Produces(TMediaType.APPLICATION_JSON)]
     function RepoWatch([Headerparam('X-GitHub-Event')] const AEvent: string; [BodyParam] AJSON: TJSONObject): TJSONObject;
@@ -47,21 +51,39 @@ uses
   System.IOUtils, Datasnap.DBClient,
   WiRL.Core.Registry;
 
-function TRepositoryResource.RepoPush(const AEvent: string; AJSON: TJSONObject): TJSONObject;
+function TRepositoryResource.RepoFork(const AEvent: string;
+  AJSON: TJSONObject): TJSONObject;
 var
-  LProject: string;
+  LForkee: string;
 begin
   TWiRLConsoleLogger.LogInfo(Request.HeaderFields.Text);
   TWiRLConsoleLogger.LogInfo('Body: ');
   TWiRLConsoleLogger.LogInfo(AJSON.ToJSON);
 
-  LProject := AJSON.GetValue('project').Value;
+  LForkee := AJSON.GetValue<string>('forkee.owner.login', '');
 
-  TWiRLConsoleLogger.LogInfo('project: ' + LProject);
+  TWiRLConsoleLogger.LogInfo('forkee: ' + LForkee);
 
   Result := TJSONObject.Create;
   Result.AddPair('result', TJSONTrue.Create);
-  Result.AddPair('project', LProject);
+  Result.AddPair('forkee', LForkee);
+end;
+
+function TRepositoryResource.RepoPush(const AEvent: string; AJSON: TJSONObject): TJSONObject;
+var
+  LRepoName: string;
+begin
+  TWiRLConsoleLogger.LogInfo(Request.HeaderFields.Text);
+  TWiRLConsoleLogger.LogInfo('Body: ');
+  TWiRLConsoleLogger.LogInfo(AJSON.ToJSON);
+
+  LRepoName := AJSON.GetValue<string>('repository.full_name', '');
+
+  TWiRLConsoleLogger.LogInfo('repository: ' + LRepoName);
+
+  Result := TJSONObject.Create;
+  Result.AddPair('result', TJSONTrue.Create);
+  Result.AddPair('repository', LRepoName);
 end;
 
 function TRepositoryResource.RepoWatch(const AEvent: string;
