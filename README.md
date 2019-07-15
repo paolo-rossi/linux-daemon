@@ -1,3 +1,11 @@
+<br />
+
+<p align="center">
+  <a href="http://jwt.io/">
+    <img src="https://user-images.githubusercontent.com/4686497/61203276-326be280-a6ea-11e9-879e-6a1007d1a064.png" alt="Linux Daemon Library for Delphi" width="250" />
+  </a>
+</p>
+
 # Delphi implementation of a Linux deamon
 
 This is the code for the blog articles:
